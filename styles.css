@@ -635,3 +635,25 @@ footer span.emphasis {
   color: var(--danger);
   font-weight: 600;
 }
+/* ===============================
+   Airway tool image styling
+=============================== */
+
+.card img {
+  width: 180px;
+  height: 180px;
+  object-fit: contain;       /* يحافظ على النسبة */
+  border-radius: 14px;       /* مربعة بحواف ناعمة */
+  border: 2px solid #cbd5e1; /* حد واضح بدون قساوة */
+  background-color: #f8fafc; /* خلفية فاتحة للصورة */
+  padding: 8px;
+  display: block;
+  margin: 12px auto;
+}
+
+/* Recommended tool image emphasis */
+.card.recommended img {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
