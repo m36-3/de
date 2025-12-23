@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Airway Device Educational Decision Support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <div class="brand-logo">AW</div>
+          <div class="brand-text">
+            <h1>Airway Device Decision Support (Educational)</h1>
+            <p>Vanilla JS • Local-only • No patient data</p>
+          </div>
+        </div>
+        <div class="toolbar">
+          <div class="pill">
+            <div class="pill-dot"></div>
+            <span>Static teaching tool – not a live guideline engine</span>
+          </div>
+          <button id="themeToggle" class="theme-toggle" type="button">
+            <span class="icon">🌙</span>
+            <span>Dark mode</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="layout">
+        <section class="panel" aria-label="Input">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">
+                Select Case Context
+                <span class="accent-pill">Input</span>
+              </div>
+              <p class="panel-subtitle">Choose procedure type, location, and key condition / risk factor.</p>
+            </div>
+            <div class="badge-small">
+              نوع العملية • مكان الإجراء • حالة مؤثرة
+            </div>
+          </div>
+
+          <form id="decisionForm">
+            <div class="form-row">
+              <label for="procedureSelect">
+                Procedure Type
+                <span class="sub">نوع العملية</span>
+              </label>
+              <div class="select-wrapper">
+                <select id="procedureSelect" required>
+                  <option value="" disabled selected>Select procedure type…</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="locationSelect">
+                Location
+                <span class="sub">مكان الإجراء</span>
+              </label>
+              <div class="select-wrapper">
+                <select id="locationSelect" required>
+                  <option value="" disabled selected>Select location…</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="conditionSelect">
+                Key Condition / Risk Factor
+                <span class="sub">خلل / حالة مؤثرة</span>
+              </label>
+              <div class="select-wrapper">
+                <select id="conditionSelect" required>
+                  <option value="" disabled selected>Select condition…</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="actions">
+              <button id="calculateBtn" type="button" class="btn-primary">
+                <span class="icon">➜</span>
+                <span>Show Recommendation</span>
+              </button>
+              <p class="helper-text">
+                Educational tool only – <strong>not</strong> a substitute for guidelines or clinical judgment.
+              </p>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel" aria-label="Recommendations">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">
+                Airway Plan Suggestions
+                <span class="accent-pill">Output</span>
+              </div>
+              <p class="panel-subtitle">Ranked by suitability, excluding devices flagged as contraindicated.</p>
+            </div>
+            <div class="badge-small">
+              Recommended • Backup 1 • Backup 2
+            </div>
+          </div>
+
+          <div class="results" id="results">
+            <div class="empty-state" id="emptyState">
+              Select procedure, location, and condition, then press
+              <strong>"Show Recommendation"</strong> to display an educational airway tool plan (Recommended + Backup 1 + Backup 2).
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <span><span class="emphasis">Educational only:</span> not for real-time clinical decision-making or patient-specific use.</span>
+      <span>Logic: simple rule-based scoring (preferred condition + procedure + location).</span>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
