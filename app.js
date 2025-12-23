@@ -42,1430 +42,1231 @@ const CONDITIONS = [
 ];
 
 // ==============================
-// Airway tools database (27 entries)
+// Airway tools database 
 // ==============================
 const TOOLS_DB = [
   {
-    id: "tool_standard_ett",
-    tool_name: "Standard cuffed endotracheal tube",
-    tool_category: "Endotracheal",
-    insertion_method: "Oral intubation using direct or video laryngoscopy",
-    insertion_site: "Oral",
-    contraindications: [
-      "Relative: severe upper airway distortion",
-      "Relative: inability to open mouth sufficiently",
-      "Requires equipment and monitoring"
-    ],
-    advantages: [
-      "Provides definitive airway and protects against aspiration",
-      "Compatible with most ventilator modes",
-      "Widely available and familiar"
-    ],
-    preferred_in: [
-      "Major abdominal surgery with controlled ventilation",
-      "Patients at high risk of regurgitation and aspiration",
-      "ICU intubations requiring prolonged ventilation"
-    ],
-    warnings: [
-      "Requires appropriate depth and cuff pressure monitoring",
-      "Tube misplacement or endobronchial intubation must be excluded",
-      "May worsen cervical spine movement if not handled carefully"
-    ],
-    backup_tools: [
-      "Video laryngoscope (non-channeled)",
-      "Bougie (intubating introducer)",
-      "Bag-mask ventilation with PEEP valve"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Standard cuffed endotracheal tube",
-      url: "images/standard-ett.png"
-    },
-    supported_procedure_types: [
-      "General Surgery \u2013 Abdomen",
-      "Orthopedics",
-      "Trauma surgery",
-      "Neurosurgery",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU",
-      "Emergency Department (ED)"
-    ],
-    preferred_conditions: [
-      "Full stomach / Aspiration risk",
-      "None / No special condition",
-      "Severe hypoxemia / Respiratory failure"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_reinforced_ett",
-    tool_name: "Reinforced (armored) endotracheal tube",
-    tool_category: "Endotracheal",
-    insertion_method: "Oral intubation with stylet or bougie as needed",
-    insertion_site: "Oral",
-    contraindications: [
-      "Aspiration risk is not reduced compared with standard ETT",
-      "Rare risk of tube collapse if bitten or sharply angulated"
-    ],
-    advantages: [
-      "Resistant to kinking in flexed or rotated positions",
-      "Useful when surgical field is close to the airway",
-      "Can be taped away from surgical site"
-    ],
-    preferred_in: [
-      "Head and neck procedures with extreme neck flexion",
-      "Prone or lateral positioning where tube kinking is a concern",
-      "ENT surgery requiring a low-profile tube"
-    ],
-    warnings: [
-      "Confirm tube patency after positioning and draping",
-      "Avoid biting by using bite block if patient emerges intubated"
-    ],
-    backup_tools: [
-      "Standard cuffed endotracheal tube",
-      "Video laryngoscope (non-channeled)",
-      "Rigid stylet"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Reinforced armored endotracheal tube",
-      url: "images/reinforced-ett.png"
-    },
-    supported_procedure_types: [
-      "Head & Neck",
-      "ENT / Airway surgery",
-      "Neurosurgery",
-      "General Surgery \u2013 Abdomen"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU"
-    ],
-    preferred_conditions: [
-      "None / No special condition",
-      "Obesity / High BMI"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_nasal_rae_ett",
-    tool_name: "Nasal RAE endotracheal tube",
-    tool_category: "Endotracheal",
-    insertion_method: "Nasal intubation via laryngoscopy or fiberoptic guidance",
-    insertion_site: "Nasal",
-    contraindications: [
-      "Basilar skull fracture or midface trauma",
-      "Severe nasal obstruction or coagulopathy",
-      "Recent nasal surgery"
-    ],
-    advantages: [
-      "Keeps tube away from oral surgical field",
-      "Useful in dental and some maxillofacial procedures",
-      "Allows better intraoral access"
-    ],
-    preferred_in: [
-      "Dental and oral surgery where mouth needs to be free",
-      "Some maxillofacial trauma cases without midface fractures",
-      "Elective nasal intubation in cooperative ICU patients"
-    ],
-    warnings: [
-      "Risk of epistaxis – gentle technique and preparation required",
-      "Confirm that nasal route is appropriate before attempting",
-      "Monitor for tube kinking at the bend"
-    ],
-    backup_tools: [
-      "Oral RAE endotracheal tube",
-      "Standard cuffed endotracheal tube",
-      "Fiberoptic bronchoscope (awake intubation)"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Preformed nasal RAE endotracheal tube",
-      url: "images/nasal-rae-ett.png"
-    },
-    supported_procedure_types: [
-      "ENT / Airway surgery",
-      "Head & Neck",
-      "Neurosurgery",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU"
-    ],
-    preferred_conditions: [
-      "None / No special condition"
-    ],
-    contraindicated_conditions: [
-      "Facial trauma / blood in airway"
-    ]
-  },
-  {
-    id: "tool_oral_rae_ett",
-    tool_name: "Oral RAE endotracheal tube",
-    tool_category: "Endotracheal",
-    insertion_method: "Oral intubation with preformed bend away from field",
-    insertion_site: "Oral",
-    contraindications: [
-      "Need for frequent tube repositioning",
-      "Situations requiring flexible tube routing"
-    ],
-    advantages: [
-      "Keeps tube away from facial surgical field",
-      "Improves access in certain ENT procedures",
-      "Less kinking when positioned correctly"
-    ],
-    preferred_in: [
-      "Tonsillectomy and adenoidectomy",
-      "Some maxillofacial and oral procedures",
-      "ENT procedures in supine position"
-    ],
-    warnings: [
-      "Check that preformed curve is compatible with surgical plan",
-      "Avoid undue pressure on lips and oral mucosa"
-    ],
-    backup_tools: [
-      "Reinforced (armored) endotracheal tube",
-      "Standard cuffed endotracheal tube",
-      "Classic laryngeal mask airway (LMA)"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Preformed oral RAE endotracheal tube",
-      url: "images/oral-rae-ett.png"
-    },
-    supported_procedure_types: [
-      "ENT / Airway surgery",
-      "Head & Neck",
-      "Short procedure / Day case"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "Outside OR (NORA: endoscopy / radiology)"
-    ],
-    preferred_conditions: [
-      "None / No special condition"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_dlt",
-    tool_name: "Double-lumen endotracheal tube (DLT)",
-    tool_category: "Endotracheal",
-    insertion_method: "Oral intubation with bronchoscopic confirmation",
-    insertion_site: "Tracheal",
-    contraindications: [
-      "Very small or distorted airway anatomy",
-      "Limited mouth opening or severe cervical immobility",
-      "Need for rapid basic airway in extremis"
-    ],
-    advantages: [
-      "Allows reliable lung isolation and one-lung ventilation",
-      "Enables independent lung ventilation if required",
-      "Facilitates surgical exposure in thoracic procedures"
-    ],
-    preferred_in: [
-      "Elective open thoracic surgery requiring lung isolation",
-      "Video-assisted thoracic surgery (VATS) procedures",
-      "Massive unilateral pathology needing isolation"
-    ],
-    warnings: [
-      "Incorrect positioning can cause hypoxemia and high pressures",
-      "Requires confirmation with auscultation and bronchoscopy",
-      "Choose size appropriate to patient anatomy"
-    ],
-    backup_tools: [
-      "Bronchial blocker via single-lumen tube",
-      "Video laryngoscope (non-channeled)",
-      "Fiberoptic bronchoscope (awake intubation)"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Double-lumen endotracheal tube for lung isolation",
-      url: "images/dlt.png"
-    },
-    supported_procedure_types: [
-      "Thoracic",
-      "General Surgery \u2013 Abdomen",
-      "Trauma surgery"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU"
-    ],
-    preferred_conditions: [
-      "Need for lung isolation"
-    ],
-    contraindicated_conditions: [
-      "Limited mouth opening / trismus",
-      "Limited neck mobility"
-    ]
-  },
-  {
-    id: "tool_bronchial_blocker",
-    tool_name: "Bronchial blocker via single-lumen tube",
-    tool_category: "Adjunct",
-    insertion_method: "Blocker advanced through in-situ single-lumen ETT under bronchoscopic guidance",
-    insertion_site: "Tracheal",
-    contraindications: [
-      "Failure to achieve adequate seal or position",
-      "Severe tracheal distortion preventing blocker placement"
-    ],
-    advantages: [
-      "Lung isolation without exchanging a definitive ETT",
-      "Useful in difficult airway after standard intubation",
-      "May remain in place postoperatively while tube is retained"
-    ],
-    preferred_in: [
-      "Thoracic procedures with anticipated difficult airway",
-      "ICU patients already intubated needing lung isolation",
-      "Trauma cases where tube exchange is high risk"
-    ],
-    warnings: [
-      "Requires bronchoscopy and experience to position",
-      "Blocker dislodgement can lead to loss of isolation",
-      "Monitor ventilator pressures and oxygenation closely"
-    ],
-    backup_tools: [
-      "Double-lumen endotracheal tube (DLT)",
-      "Fiberoptic bronchoscope (awake intubation)",
-      "Video laryngoscope (non-channeled)"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Bronchial blocker used through single-lumen endotracheal tube",
-      url: "images/bronchial-blocker.png"
-    },
-    supported_procedure_types: [
-      "Thoracic",
-      "Trauma surgery",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU"
-    ],
-    preferred_conditions: [
-      "Need for lung isolation",
-      "Anticipated difficult airway"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_classic_lma",
-    tool_name: "Classic laryngeal mask airway (LMA)",
-    tool_category: "Supraglottic",
-    insertion_method: "Blind insertion into hypopharynx with cuff inflation",
-    insertion_site: "Oral",
-    contraindications: [
-      "Non-fasted patients at significant aspiration risk",
-      "Poor mouth opening or fixed airway obstruction",
-      "High-pressure ventilation requirements"
-    ],
-    advantages: [
-      "Rapid insertion with minimal head/neck movement",
-      "Useful for many short elective procedures",
-      "Less hemodynamic response than intubation"
-    ],
-    preferred_in: [
-      "Short day case procedures in fasting patients",
-      "Minor peripheral surgeries not requiring muscle relaxation",
-      "As a rescue airway after failed intubation in low-risk patients"
-    ],
-    warnings: [
-      "Does not provide reliable protection against aspiration",
-      "Gastric insufflation and leak may occur at high pressures",
-      "Cuff pressure should be monitored and minimized"
-    ],
-    backup_tools: [
-      "Second-generation LMA",
-      "Standard cuffed endotracheal tube",
-      "i-gel supraglottic airway"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Classic laryngeal mask airway device",
-      url: "images/classic-lma.png"
-    },
-    supported_procedure_types: [
-      "Short procedure / Day case",
-      "Endoscopy",
-      "Orthopedics"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "Outside OR (NORA: endoscopy / radiology)"
-    ],
-    preferred_conditions: [
-      "None / No special condition"
-    ],
-    contraindicated_conditions: [
-      "Full stomach / Aspiration risk",
-      "Pregnancy"
-    ]
-  },
-  {
-    id: "tool_second_gen_lma",
-    tool_name: "Second-generation LMA (with gastric drain)",
-    tool_category: "Supraglottic",
-    insertion_method: "Blind oral insertion with gastric drain access",
-    insertion_site: "Oral",
-    contraindications: [
-      "Very high aspiration risk when a cuffed ETT is feasible",
-      "Severe oropharyngeal pathology preventing placement"
-    ],
-    advantages: [
-      "Higher seal pressures compared with classic LMA",
-      "Gastric channel allows suctioning and tube placement",
-      "Useful bridge in unanticipated difficult airway"
-    ],
-    preferred_in: [
-      "Lap or short abdominal procedures in selected fasting patients",
-      "Obese patients for short, low-risk surgery with careful monitoring",
-      "Rescue ventilation when intubation fails"
-    ],
-    warnings: [
-      "Still not equivalent to cuffed ETT for aspiration protection",
-      "Monitor leak pressure, gastric fluid and positioning",
-      "Use caution in high-risk obstetric or emergency patients"
-    ],
-    backup_tools: [
-      "Standard cuffed endotracheal tube",
-      "Video laryngoscope (channeled)",
-      "Second-generation supraglottic rescue device kit"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Second-generation supraglottic airway with gastric drain",
-      url: "images/second-gen-lma.png"
-    },
-    supported_procedure_types: [
-      "General Surgery \u2013 Abdomen",
-      "Short procedure / Day case",
-      "Obstetrics"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "Outside OR (NORA: endoscopy / radiology)",
-      "Emergency Department (ED)"
-    ],
-    preferred_conditions: [
-      "Obesity / High BMI",
-      "None / No special condition"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_igel",
-    tool_name: "i-gel supraglottic airway",
-    tool_category: "Supraglottic",
-    insertion_method: "Non-inflatable cuff seated over laryngeal inlet",
-    insertion_site: "Oral",
-    contraindications: [
-      "Non-fasted patients at high aspiration risk",
-      "Severe mouth opening limitation",
-      "Significant fixed upper airway obstruction"
-    ],
-    advantages: [
-      "Quick insertion with good seal in many patients",
-      "Useful as rescue airway in ED and prehospital settings",
-      "Can be used as a conduit for intubation with fiberoptic scope"
-    ],
-    preferred_in: [
-      "Rapid rescue of hypoxemia in difficult airway scenario",
-      "Short procedures where intubation is not essential",
-      "Prehospital airway management when intubation skills vary"
-    ],
-    warnings: [
-      "Does not fully protect from aspiration",
-      "Prolonged use requires airway and gastric monitoring",
-      "Confirm correct depth and fixation before releasing mask"
-    ],
-    backup_tools: [
-      "Second-generation LMA",
-      "Standard cuffed endotracheal tube",
-      "LMA Fastrach (intubating LMA)"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "i-gel supraglottic airway device",
-      url: "images/igel.png"
-    },
-    supported_procedure_types: [
-      "Short procedure / Day case",
-      "Trauma surgery",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Emergency Department (ED)",
-      "Prehospital / Ambulance",
-      "Operating Room (OR)"
-    ],
-    preferred_conditions: [
-      "Severe hypoxemia / Respiratory failure",
-      "None / No special condition"
-    ],
-    contraindicated_conditions: [
-      "Full stomach / Aspiration risk"
-    ]
-  },
-  {
-    id: "tool_lma_fastrach",
-    tool_name: "LMA Fastrach (intubating LMA)",
-    tool_category: "Supraglottic",
-    insertion_method: "Supraglottic placement used as conduit for intubation",
-    insertion_site: "Oral",
-    contraindications: [
-      "Markedly limited mouth opening",
-      "Significant supraglottic obstruction",
-      "Patients at high risk of aspiration"
-    ],
-    advantages: [
-      "Facilitates intubation when direct laryngoscopy view is poor",
-      "Allows ventilation while intubation is attempted",
-      "Useful in unanticipated difficult airway situations"
-    ],
-    preferred_in: [
-      "Rescue after failed direct laryngoscopy in difficult airway",
-      "Trauma with relative cervical spine concerns but mouth opening adequate",
-      "Elective difficult airway with backup plan"
-    ],
-    warnings: [
-      "Requires familiarity with specific tube sizes and technique",
-      "Aspiration protection remains incomplete until ETT is in place",
-      "Avoid in patients with high aspiration risk unless no alternatives"
-    ],
-    backup_tools: [
-      "Fiberoptic bronchoscope (awake intubation)",
-      "Video laryngoscope (channeled)",
-      "Second-generation supraglottic rescue device kit"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Intubating laryngeal mask airway (LMA Fastrach)",
-      url: "images/lma-fastrach.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "ENT / Airway surgery",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "Emergency Department (ED)"
-    ],
-    preferred_conditions: [
-      "Anticipated difficult airway",
-      "Limited mouth opening / trismus"
-    ],
-    contraindicated_conditions: [
-      "Full stomach / Aspiration risk"
-    ]
-  },
-  {
-    id: "tool_king_lt",
-    tool_name: "Laryngeal tube (King LT)",
-    tool_category: "Supraglottic",
-    insertion_method: "Blind supraglottic insertion with proximal and distal cuffs",
-    insertion_site: "Oral",
-    contraindications: [
-      "Known esophageal pathology or recent upper GI surgery",
-      "High aspiration risk where intubation is feasible"
-    ],
-    advantages: [
-      "Rapid insertion in prehospital or ED settings",
-      "Provides reasonable seal for controlled ventilation",
-      "Useful as rescue airway when intubation fails"
-    ],
-    preferred_in: [
-      "Out-of-hospital cardiac arrest for basic airway control",
-      "Trauma patients in prehospital systems without routine intubation",
-      "Short transport or bridge to definitive airway"
-    ],
-    warnings: [
-      "Gastric insufflation may occur at high ventilation pressures",
-      "Aspiration risk is reduced but not eliminated",
-      "Securing device and cuff pressures is essential"
-    ],
-    backup_tools: [
-      "Standard cuffed endotracheal tube",
-      "Second-generation supraglottic rescue device kit",
-      "Bag-mask ventilation with PEEP valve"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Laryngeal tube King LT used in prehospital airway management",
-      url: "images/king-lt.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "Short procedure / Day case",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Prehospital / Ambulance",
-      "Emergency Department (ED)"
-    ],
-    preferred_conditions: [
-      "Severe hypoxemia / Respiratory failure",
-      "None / No special condition"
-    ],
-    contraindicated_conditions: [
-      "Full stomach / Aspiration risk"
-    ]
-  },
-  {
-    id: "tool_opa",
-    tool_name: "Oropharyngeal airway (Guedel)",
-    tool_category: "Adjunct",
-    insertion_method: "Placed over tongue to maintain oropharyngeal patency",
-    insertion_site: "Oral",
-    contraindications: [
-      "Conscious or semi-conscious patients with intact gag reflex",
-      "Severe oral trauma or obstruction preventing placement"
-    ],
-    advantages: [
-      "Simple, rapid and inexpensive airway adjunct",
-      "Helps improve mask ventilation by lifting tongue",
-      "Useful in operating room and resuscitation settings"
-    ],
-    preferred_in: [
-      "Bag-mask ventilation during induction or resuscitation",
-      "Short procedures under deep sedation",
-      "ICU or ED patients requiring temporary airway support"
-    ],
-    warnings: [
-      "Incorrect size may worsen obstruction or cause trauma",
-      "Avoid use in lightly sedated patients with strong gag",
-      "Does not protect against aspiration"
-    ],
-    backup_tools: [
-      "Nasopharyngeal airway",
-      "Bag-mask ventilation with PEEP valve",
-      "i-gel supraglottic airway"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Oropharyngeal Guedel airway",
-      url: "images/oropharyngeal-airway.png"
-    },
-    supported_procedure_types: [
-      "Short procedure / Day case",
-      "Endoscopy",
-      "Trauma surgery"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU",
-      "Emergency Department (ED)"
-    ],
-    preferred_conditions: [
-      "None / No special condition",
-      "Severe hypoxemia / Respiratory failure"
-    ],
-    contraindicated_conditions: [
-      "Limited mouth opening / trismus"
-    ]
-  },
-  {
-    id: "tool_npa",
-    tool_name: "Nasopharyngeal airway",
-    tool_category: "Adjunct",
-    insertion_method: "Lubricated tube inserted via nostril into nasopharynx",
-    insertion_site: "Nasal",
-    contraindications: [
-      "Basilar skull fracture or midface trauma",
-      "Severe coagulopathy or nasal pathology"
-    ],
-    advantages: [
-      "Better tolerated in semi-conscious patients than OPA",
-      "Provides airway patency during bag-mask ventilation",
-      "Useful when mouth opening is limited"
-    ],
-    preferred_in: [
-      "Resuscitation of patients with partial consciousness",
-      "Obese or snoring patients during sedation",
-      "ICU or ward patients with obstructive breathing pattern"
-    ],
-    warnings: [
-      "Risk of epistaxis especially in coagulopathic patients",
-      "Avoid forceful insertion against resistance",
-      "Does not protect against aspiration"
-    ],
-    backup_tools: [
-      "Oropharyngeal airway (Guedel)",
-      "High-flow nasal cannula (HFNC)",
-      "i-gel supraglottic airway"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Soft nasopharyngeal airway device",
-      url: "images/nasopharyngeal-airway.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "Short procedure / Day case",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Emergency Department (ED)",
-      "ICU",
-      "Ward / Floor"
-    ],
-    preferred_conditions: [
-      "Obesity / High BMI",
-      "Severe hypoxemia / Respiratory failure"
-    ],
-    contraindicated_conditions: [
-      "Facial trauma / blood in airway"
-    ]
-  },
-  {
-    id: "tool_combitube",
-    tool_name: "Esophageal-tracheal combitube",
-    tool_category: "Rescue",
-    insertion_method: "Blind oropharyngeal insertion with dual-lumen ventilation",
-    insertion_site: "Oral",
-    contraindications: [
-      "Known esophageal disease or varices",
-      "Patients with intact protective reflexes",
-      "Very small adults where device sizing is not suitable"
-    ],
-    advantages: [
-      "Provides ventilation whether inflated in esophagus or trachea",
-      "Rapid rescue device in prehospital and ED settings",
-      "Reasonable protection from gastric insufflation in many cases"
-    ],
-    preferred_in: [
-      "Cardiac arrest with difficult or failed intubation",
-      "Prehospital airway when expertise in intubation is limited",
-      "Short-term rescue ventilation until definitive airway"
-    ],
-    warnings: [
-      "Insertion trauma and sore throat are relatively common",
-      "Not intended for prolonged mechanical ventilation",
-      "Requires careful training to use safely"
-    ],
-    backup_tools: [
-      "Standard cuffed endotracheal tube",
-      "Laryngeal tube (King LT)",
-      "Second-generation supraglottic rescue device kit"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Esophageal-tracheal combitube for rescue airway",
-      url: "images/combitube.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "General Surgery \u2013 Abdomen",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Prehospital / Ambulance",
-      "Emergency Department (ED)",
-      "Operating Room (OR)"
-    ],
-    preferred_conditions: [
-      "Severe hypoxemia / Respiratory failure",
-      "Full stomach / Aspiration risk"
-    ],
-    contraindicated_conditions: [
-      "Limited mouth opening / trismus"
-    ]
-  },
-  {
-    id: "tool_bougie",
-    tool_name: "Bougie (intubating introducer)",
-    tool_category: "Adjunct",
-    insertion_method: "Introducer passed through glottis then ETT railroaded over",
-    insertion_site: "Other",
-    contraindications: [
-      "Poor visualization of epiglottis or landmarks",
-      "Risk of airway trauma if used forcefully"
-    ],
-    advantages: [
-      "Simple tool to convert poor view into successful intubation",
-      "Widely available and easy to learn",
-      "Particularly useful with Cormack-Lehane grade 2–3 views"
-    ],
-    preferred_in: [
-      "Difficult laryngoscopy with partial vocal cord visualization",
-      "Trauma or obstetric patients with limited positioning options",
-      "ICU intubations where view is suboptimal"
-    ],
-    warnings: [
-      "Avoid advancing against significant resistance",
-      "Monitor for airway trauma or bleeding",
-      "Confirm final tube position with capnography"
-    ],
-    backup_tools: [
-      "Video laryngoscope (non-channeled)",
-      "Video laryngoscope (channeled)",
-      "Fiberoptic bronchoscope (awake intubation)"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Flexible bougie introducer for endotracheal intubation",
-      url: "images/bougie.png"
-    },
-    supported_procedure_types: [
-      "General Surgery \u2013 Abdomen",
-      "Orthopedics",
-      "Trauma surgery",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "Emergency Department (ED)",
-      "ICU"
-    ],
-    preferred_conditions: [
-      "Anticipated difficult airway",
-      "Cervical spine concern / immobilization"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_rigid_stylet",
-    tool_name: "Rigid intubating stylet",
-    tool_category: "Adjunct",
-    insertion_method: "Stylet pre-shaped and inserted inside ETT for intubation",
-    insertion_site: "Other",
-    contraindications: [
-      "Very small or fragile airways",
-      "Limited mouth opening preventing safe insertion"
-    ],
-    advantages: [
-      "Helps direct tube toward glottis in anterior airways",
-      "Standard accessory in many operating rooms",
-      "Low cost and reusable when processed appropriately"
-    ],
-    preferred_in: [
-      "Obese patients with anterior larynx",
-      "Rapid sequence induction with standard ETT",
-      "Cases where video laryngoscopy is not available"
-    ],
-    warnings: [
-      "Tip should not protrude beyond ETT to avoid trauma",
-      "Uncurl stylet before advancing beyond vocal cords",
-      "Use gentle movements to prevent soft tissue injury"
-    ],
-    backup_tools: [
-      "Bougie (intubating introducer)",
-      "Video laryngoscope (non-channeled)",
-      "Standard cuffed endotracheal tube"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Rigid stylet shaped for endotracheal intubation",
-      url: "images/rigid-stylet.png"
-    },
-    supported_procedure_types: [
-      "General Surgery \u2013 Abdomen",
-      "Obstetrics",
-      "Orthopedics"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU"
-    ],
-    preferred_conditions: [
-      "Obesity / High BMI",
-      "Full stomach / Aspiration risk"
-    ],
-    contraindicated_conditions: [
-      "Limited mouth opening / trismus"
-    ]
-  },
-  {
-    id: "tool_hfnc",
-    tool_name: "High-flow nasal cannula (HFNC)",
-    tool_category: "Adjunct",
-    insertion_method: "Heated humidified oxygen via wide-bore nasal cannula",
-    insertion_site: "Nasal",
-    contraindications: [
-      "Complete nasal obstruction or recent nasal surgery",
-      "Significant facial trauma preventing seal"
-    ],
-    advantages: [
-      "Provides apneic oxygenation and some positive pressure",
-      "Improves oxygenation in hypoxemic respiratory failure",
-      "Can be used during intubation attempts"
-    ],
-    preferred_in: [
-      "Pre-oxygenation for severely hypoxemic ICU patients",
-      "Bridge therapy for respiratory failure under close monitoring",
-      "Apneic oxygenation during difficult airway management"
-    ],
-    warnings: [
-      "Does not protect against aspiration or guarantee ventilation",
-      "Requires monitoring for worsening hypercapnia",
-      "Humidifier and circuit function must be checked"
-    ],
-    backup_tools: [
-      "Bag-mask ventilation with PEEP valve",
-      "Standard cuffed endotracheal tube",
-      "Non-invasive ventilation interfaces"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "High-flow nasal cannula interface",
-      url: "images/hfnc.png"
-    },
-    supported_procedure_types: [
-      "ICU Intubation / Procedure",
-      "Endoscopy",
-      "Thoracic"
-    ],
-    supported_locations: [
-      "ICU",
-      "Ward / Floor",
-      "Operating Room (OR)"
-    ],
-    preferred_conditions: [
-      "Severe hypoxemia / Respiratory failure",
-      "Obesity / High BMI"
-    ],
-    contraindicated_conditions: [
-      "Facial trauma / blood in airway",
-      "Burns / inhalation injury"
-    ]
-  },
-  {
-    id: "tool_bmv_peep",
-    tool_name: "Bag-mask ventilation with PEEP valve",
-    tool_category: "Adjunct",
-    insertion_method: "Manual ventilation via face mask with PEEP",
-    insertion_site: "Other",
-    contraindications: [
-      "Inability to maintain an adequate mask seal",
-      "Severe facial trauma precluding mask placement"
-    ],
-    advantages: [
-      "Universal emergency airway technique",
-      "Provides oxygenation while planning definitive airway",
-      "PEEP improves functional residual capacity in many patients"
-    ],
-    preferred_in: [
-      "Pre-oxygenation and rescue ventilation in induction",
-      "Cardiopulmonary resuscitation in any location",
-      "Bridge to intubation in ICU and ED"
-    ],
-    warnings: [
-      "Excessive tidal volumes can cause gastric insufflation",
-      "Requires two-person technique in many obese patients",
-      "Does not protect against aspiration"
-    ],
-    backup_tools: [
-      "Oropharyngeal airway (Guedel)",
-      "Nasopharyngeal airway",
-      "i-gel supraglottic airway"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Bag-mask ventilation system with PEEP valve",
-      url: "images/bmv-peep.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "ICU Intubation / Procedure",
-      "Short procedure / Day case"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "Emergency Department (ED)",
-      "ICU",
-      "Prehospital / Ambulance"
-    ],
-    preferred_conditions: [
-      "Severe hypoxemia / Respiratory failure",
-      "Obesity / High BMI"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_direct_laryngoscope",
-    tool_name: "Direct laryngoscope (Macintosh)",
-    tool_category: "Visualization",
-    insertion_method: "Oral blade with direct line-of-sight laryngoscopy",
-    insertion_site: "Oral",
-    contraindications: [
-      "Significant cervical spine instability",
-      "Severe mouth opening limitation",
-      "Massive upper airway bleeding or obstruction"
-    ],
-    advantages: [
-      "Widely available and familiar to most anesthetists",
-      "Predictable performance in routine airways",
-      "No dependence on video screen or power"
-    ],
-    preferred_in: [
-      "Routine elective surgical intubations",
-      "Training settings for basic airway skills",
-      "Backup when video equipment fails"
-    ],
-    warnings: [
-      "May worsen cervical spine movement if positioning is aggressive",
-      "Poor view is likely in many predicted difficult airways",
-      "Adequate pre-oxygenation and backup plans are essential"
-    ],
-    backup_tools: [
-      "Video laryngoscope (non-channeled)",
-      "Bougie (intubating introducer)",
-      "Standard cuffed endotracheal tube"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Macintosh direct laryngoscope for endotracheal intubation",
-      url: "images/direct-laryngoscope.png"
-    },
-    supported_procedure_types: [
-      "General Surgery \u2013 Abdomen",
-      "Orthopedics",
-      "Obstetrics",
-      "Trauma surgery"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "Emergency Department (ED)",
-      "ICU"
-    ],
-    preferred_conditions: [
-      "None / No special condition"
-    ],
-    contraindicated_conditions: [
-      "Cervical spine concern / immobilization",
-      "Limited mouth opening / trismus"
-    ]
-  },
-  {
-    id: "tool_video_laryngoscope",
-    tool_name: "Video laryngoscope (non-channeled)",
-    tool_category: "Visualization",
-    insertion_method: "Video-assisted laryngoscopy with separate ETT",
-    insertion_site: "Oral",
-    contraindications: [
-      "Severe airway contamination obscuring camera",
-      "Very limited mouth opening preventing blade insertion"
-    ],
-    advantages: [
-      "Improved glottic visualization in many difficult airways",
-      "Shared view for teaching and team communication",
-      "Reduces cervical spine movement compared with some direct techniques"
-    ],
-    preferred_in: [
-      "Predicted difficult airways in OR or ICU",
-      "Intubation with cervical spine precautions",
-      "Obese or obstetric patients with limited reserve"
-    ],
-    warnings: [
-      "Good view does not guarantee easy tube passage",
-      "Familiarity with device-specific technique is required",
-      "Screen contamination can rapidly degrade visualization"
-    ],
-    backup_tools: [
-      "Bougie (intubating introducer)",
-      "Video laryngoscope (channeled)",
-      "Fiberoptic bronchoscope (awake intubation)"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Non-channeled video laryngoscope for airway visualization",
-      url: "images/video-laryngoscope.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "Neurosurgery",
-      "Obstetrics",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "Emergency Department (ED)",
-      "ICU",
-      "Ward / Floor"
-    ],
-    preferred_conditions: [
-      "Anticipated difficult airway",
-      "Cervical spine concern / immobilization",
-      "Obesity / High BMI"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_video_laryngoscope_channeled",
-    tool_name: "Video laryngoscope (channeled)",
-    tool_category: "Visualization",
-    insertion_method: "Video blade with tube-guiding channel",
-    insertion_site: "Oral",
-    contraindications: [
-      "Severe mouth opening limitation",
-      "Marked airway distortion not aligning with channel"
-    ],
-    advantages: [
-      "Integrated tube channel simplifies intubation path",
-      "Useful in unanticipated difficult airway after failed direct laryngoscopy",
-      "Often provides good views in limited neck mobility"
-    ],
-    preferred_in: [
-      "ICU or ED intubations with suspected difficult airway",
-      "Rescue after failed direct laryngoscopy",
-      "Prehospital settings where devices are available"
-    ],
-    warnings: [
-      "Requires correct midline insertion to align channel",
-      "Fogging or secretions can obscure camera",
-      "Tube size must match device recommendations"
-    ],
-    backup_tools: [
-      "Bougie (intubating introducer)",
-      "i-gel supraglottic airway",
-      "Second-generation supraglottic rescue device kit"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Channeled video laryngoscope guiding endotracheal tube",
-      url: "images/video-laryngoscope-channeled.png"
-    },
-    supported_procedure_types: [
-      "ICU Intubation / Procedure",
-      "Trauma surgery",
-      "Short procedure / Day case"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "Emergency Department (ED)",
-      "Prehospital / Ambulance"
-    ],
-    preferred_conditions: [
-      "Anticipated difficult airway",
-      "Limited neck mobility"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_fiberoptic_awake",
-    tool_name: "Fiberoptic bronchoscope (awake intubation)",
-    tool_category: "Visualization",
-    insertion_method: "Flexible scope-guided intubation via oral or nasal route",
-    insertion_site: "Oral",
-    contraindications: [
-      "Massive airway bleeding obscuring view",
-      "Patient unable to cooperate or maintain positioning",
-      "Severe secretions not manageable with suction"
-    ],
-    advantages: [
-      "Maintains spontaneous ventilation in difficult airway",
-      "Minimal neck movement and mouth opening required",
-      "Allows careful navigation around airway pathology"
-    ],
-    preferred_in: [
-      "Severely anticipated difficult airways (tumour, deformity)",
-      "Cervical spine instability needing minimal movement",
-      "Previously failed laryngoscopy with stable oxygenation"
-    ],
-    warnings: [
-      "Requires time, topical anesthesia and patient cooperation",
-      "Not ideal in rapidly deteriorating hypoxemic patients",
-      "Needs regular practice to maintain skill"
-    ],
-    backup_tools: [
-      "LMA Fastrach (intubating LMA)",
-      "Video laryngoscope (non-channeled)",
-      "Surgical cricothyrotomy kit"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Flexible fiberoptic bronchoscope used for awake intubation",
-      url: "images/fiberoptic-bronchoscope.png"
-    },
-    supported_procedure_types: [
-      "Head & Neck",
-      "ENT / Airway surgery",
-      "ICU Intubation / Procedure",
-      "Neurosurgery"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU",
-      "Ward / Floor"
-    ],
-    preferred_conditions: [
-      "Anticipated difficult airway",
-      "Limited mouth opening / trismus",
-      "Limited neck mobility"
-    ],
-    contraindicated_conditions: [
-      "Severe hypoxemia / Respiratory failure",
-      "Facial trauma / blood in airway"
-    ]
-  },
-  {
-    id: "tool_flex_scope_sgad",
-    tool_name: "Flexible bronchoscope through supraglottic device",
-    tool_category: "Visualization",
-    insertion_method: "Scope passed through supraglottic airway as conduit",
-    insertion_site: "Oral",
-    contraindications: [
-      "Failure to ventilate adequately through supraglottic device",
-      "Marked airway obstruction distal to the device"
-    ],
-    advantages: [
-      "Allows intubation while maintaining ventilation",
-      "Useful bridge from rescue supraglottic airway to ETT",
-      "Less neck movement than repeated laryngoscopy"
-    ],
-    preferred_in: [
-      "Unanticipated difficult airway rescued by supraglottic device",
-      "Obese patients with poor laryngoscopy view but good supraglottic ventilation",
-      "ICU patients with difficult laryngoscopy who can be ventilated via LMA or i-gel"
-    ],
-    warnings: [
-      "Requires fiberoptic skills and appropriate connectors",
-      "Device displacement may occur during intubation",
-      "Ensure final tube position before removing supraglottic device"
-    ],
-    backup_tools: [
-      "Second-generation supraglottic rescue device kit",
-      "Video laryngoscope (non-channeled)",
-      "Surgical cricothyrotomy kit"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Flexible bronchoscope passed through supraglottic airway",
-      url: "images/flex-scope-sgad.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "ENT / Airway surgery",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU"
-    ],
-    preferred_conditions: [
-      "Anticipated difficult airway",
-      "Obesity / High BMI"
-    ],
-    contraindicated_conditions: [
-      "Severe hypoxemia / Respiratory failure"
-    ]
-  },
-  {
-    id: "tool_optical_stylet",
-    tool_name: "Optical stylet (e.g., Bonfils-type)",
-    tool_category: "Visualization",
-    insertion_method: "Rigid optical stylet guiding ETT under direct view",
-    insertion_site: "Oral",
-    contraindications: [
-      "Very limited mouth opening",
-      "Massive airway bleeding obscuring lens"
-    ],
-    advantages: [
-      "Useful in anterior larynx with minimal neck movement",
-      "Compact device helpful in crowded surgical fields",
-      "Provides direct view of glottis without full laryngoscopy"
-    ],
-    preferred_in: [
-      "Head and neck patients with altered anatomy",
-      "Neurosurgical cases where neck movement should be limited",
-      "Difficult airways where video laryngoscope is not ideal"
-    ],
-    warnings: [
-      "Requires specific training and practice",
-      "Lens fogging and secretions can compromise view",
-      "Gentle advancement is critical to avoid trauma"
-    ],
-    backup_tools: [
-      "Video laryngoscope (non-channeled)",
-      "Bougie (intubating introducer)",
-      "Fiberoptic bronchoscope (awake intubation)"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Optical intubating stylet guiding an endotracheal tube",
-      url: "images/optical-stylet.png"
-    },
-    supported_procedure_types: [
-      "Head & Neck",
-      "Orthopedics",
-      "Neurosurgery"
-    ],
-    supported_locations: [
-      "Operating Room (OR)",
-      "ICU",
-      "Emergency Department (ED)"
-    ],
-    preferred_conditions: [
-      "Anticipated difficult airway",
-      "Limited neck mobility"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_surgical_cric",
-    tool_name: "Surgical cricothyrotomy kit",
-    tool_category: "Rescue",
-    insertion_method: "Open surgical airway via cricothyroid membrane",
-    insertion_site: "Surgical",
-    contraindications: [
-      "Very young children where surgical cricothyrotomy is not standard",
-      "Inability to identify landmarks (relative)"
-    ],
-    advantages: [
-      "Definitive front-of-neck airway in cannot intubate, cannot oxygenate",
-      "Allows connection to standard breathing circuits",
-      "Rapid life-saving procedure when performed correctly"
-    ],
-    preferred_in: [
-      "Failed intubation and failed supraglottic ventilation",
-      "Severe facial or upper airway trauma obstructing access",
-      "Thermal or inhalation injury with complete upper airway obstruction"
-    ],
-    warnings: [
-      "High-stakes procedure requiring training and preparation",
-      "Bleeding and misplacement are possible complications",
-      "Post-procedure care and eventual conversion to tracheostomy may be required"
-    ],
-    backup_tools: [
-      "Needle cricothyrotomy with jet ventilation",
-      "Second-generation supraglottic rescue device kit",
-      "Bag-mask ventilation with PEEP valve"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Surgical cricothyrotomy emergency airway kit",
-      url: "images/surgical-cric.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "ENT / Airway surgery",
-      "ICU Intubation / Procedure"
-    ],
-    supported_locations: [
-      "Emergency Department (ED)",
-      "Prehospital / Ambulance",
-      "Operating Room (OR)"
-    ],
-    preferred_conditions: [
-      "Severe hypoxemia / Respiratory failure",
-      "Facial trauma / blood in airway",
-      "Burns / inhalation injury"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_needle_cric",
-    tool_name: "Needle cricothyrotomy with jet ventilation",
-    tool_category: "Rescue",
-    insertion_method: "Percutaneous cannula through cricothyroid membrane",
-    insertion_site: "Surgical",
-    contraindications: [
-      "Complete upper airway obstruction without exhalation pathway",
-      "Lack of appropriate jet ventilation equipment"
-    ],
-    advantages: [
-      "Rapid temporizing oxygenation in small children and adults",
-      "Less invasive than formal surgical cricothyrotomy",
-      "Can be life-saving while preparing for definitive airway"
-    ],
-    preferred_in: [
-      "Cannot intubate, cannot oxygenate in remote settings",
-      "Severe facial trauma with no oral or nasal access",
-      "Inhalation injury with rapidly closing airway"
-    ],
-    warnings: [
-      "Does not provide effective CO2 elimination long term",
-      "Risk of barotrauma and subcutaneous emphysema",
-      "Requires careful timing and monitoring"
-    ],
-    backup_tools: [
-      "Surgical cricothyrotomy kit",
-      "Second-generation supraglottic rescue device kit",
-      "Standard cuffed endotracheal tube"
-    ],
-    skill_level: "Advanced",
-    image: {
-      alt: "Needle cricothyrotomy kit with jet ventilation",
-      url: "images/needle-cric.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "ICU Intubation / Procedure",
-      "ENT / Airway surgery"
-    ],
-    supported_locations: [
-      "Emergency Department (ED)",
-      "Prehospital / Ambulance",
-      "Operating Room (OR)"
-    ],
-    preferred_conditions: [
-      "Severe hypoxemia / Respiratory failure",
-      "Facial trauma / blood in airway",
-      "Burns / inhalation injury"
-    ],
-    contraindicated_conditions: []
-  },
-  {
-    id: "tool_sgad_rescue_kit",
-    tool_name: "Second-generation supraglottic rescue device kit",
-    tool_category: "Rescue",
-    insertion_method: "Rapid insertion supraglottic device with gastric drain and accessories",
-    insertion_site: "Oral",
-    contraindications: [
-      "Extreme aspiration risk when ETT is immediately feasible",
-      "Severe mouth opening limitation"
-    ],
-    advantages: [
-      "Fast rescue ventilation after failed intubation",
-      "Gastric drain allows suction or gastric tube placement",
-      "Can serve as conduit for fiberoptic-guided intubation"
-    ],
-    preferred_in: [
-      "Unanticipated difficult airway with failed laryngoscopy",
-      "Trauma or ED patients where oxygenation is failing",
-      "Prehospital airway rescue when intubation fails"
-    ],
-    warnings: [
-      "Not a definitive aspiration-protecting airway",
-      "Careful monitoring of ventilation pressures and gastric contents is needed",
-      "Plan for transition to cuffed ETT when appropriate"
-    ],
-    backup_tools: [
-      "Flexible bronchoscope through supraglottic device",
-      "Standard cuffed endotracheal tube",
-      "Surgical cricothyrotomy kit"
-    ],
-    skill_level: "Basic",
-    image: {
-      alt: "Second-generation supraglottic rescue airway kit",
-      url: "images/sgad-rescue-kit.png"
-    },
-    supported_procedure_types: [
-      "Trauma surgery",
-      "ICU Intubation / Procedure",
-      "Endoscopy"
-    ],
-    supported_locations: [
-      "Emergency Department (ED)",
-      "Prehospital / Ambulance",
-      "Operating Room (OR)"
-    ],
-    preferred_conditions: [
-      "Severe hypoxemia / Respiratory failure",
-      "Anticipated difficult airway"
-    ],
-    contraindicated_conditions: [
-      "Full stomach / Aspiration risk"
-    ]
-  }
-];
+  id: "ett_oxford",
+  tool_name: "Oxford Tracheal Tube",
+  tool_category: "Endotracheal – Specialized",
+  insertion_method: "Oral intubation using laryngoscope",
+  insertion_site: "Oral",
+  contraindications: ["Severe tracheal stenosis"],
+  advantages: [
+    "Longer tube length",
+    "Suitable for head and neck surgery",
+    "Allows surgical access without tube displacement"
+  ],
+  preferred_in: [
+    "Head and neck surgery",
+    "ENT procedures"
+  ],
+  warnings: [
+    "Ensure correct depth due to increased length",
+    "Confirm tube position after patient positioning"
+  ],
+  backup_tools: ["Standard ETT", "Bougie"],
+  skill_level: "Intermediate",
+  image: { alt: "Oxford Tracheal Tube", url: "images/ett_oxford.png" },
+  supported_procedure_types: [
+    "ENT Surgery",
+    "Head and Neck Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Need for longer tracheal tube"
+  ],
+  contraindicated_conditions: [
+    "Very short trachea"
+  ],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_armoured",
+  tool_name: "Armoured (Reinforced) Tracheal Tube",
+  tool_category: "Endotracheal – Reinforced",
+  insertion_method: "Oral or nasal intubation using laryngoscope",
+  insertion_site: "Oral / Nasal",
+  contraindications: ["Need for tube clamping or stylet fixation"],
+  advantages: [
+    "Resists kinking",
+    "Maintains lumen patency during extreme positioning"
+  ],
+  preferred_in: [
+    "Prone position surgery",
+    "Neurosurgery",
+    "Head and neck surgery"
+  ],
+  warnings: [
+    "Cannot be cut",
+    "More difficult to secure with stylet"
+  ],
+  backup_tools: ["Standard ETT", "Video laryngoscope"],
+  skill_level: "Intermediate",
+  image: { alt: "Armoured ETT", url: "images/ett_armoured.png" },
+  supported_procedure_types: [
+    "Neurosurgery",
+    "Spine Surgery",
+    "ENT Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)",
+    "ICU"
+  ],
+  preferred_conditions: [
+    "Risk of tube kinking"
+  ],
+  contraindicated_conditions: [
+    "Need for tube shortening"
+  ],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Emergency", "Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_armoured",
+  tool_name: "Armoured (Reinforced) Tracheal Tube",
+  tool_category: "Endotracheal – Reinforced",
+  insertion_method: "Oral or nasal intubation using laryngoscope",
+  insertion_site: "Oral / Nasal",
+  contraindications: ["Need for tube clamping or stylet fixation"],
+  advantages: [
+    "Resists kinking",
+    "Maintains lumen patency during extreme positioning"
+  ],
+  preferred_in: [
+    "Prone position surgery",
+    "Neurosurgery",
+    "Head and neck surgery"
+  ],
+  warnings: [
+    "Cannot be cut",
+    "More difficult to secure with stylet"
+  ],
+  backup_tools: ["Standard ETT", "Video laryngoscope"],
+  skill_level: "Intermediate",
+  image: { alt: "Armoured ETT", url: "images/ett_armoured.png" },
+  supported_procedure_types: [
+    "Neurosurgery",
+    "Spine Surgery",
+    "ENT Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)",
+    "ICU"
+  ],
+  preferred_conditions: [
+    "Risk of tube kinking"
+  ],
+  contraindicated_conditions: [
+    "Need for tube shortening"
+  ],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Emergency", "Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_polar",
+  tool_name: "Polar Preformed Tracheal Tube",
+  tool_category: "Endotracheal – Preformed",
+  insertion_method: "Oral intubation using laryngoscope",
+  insertion_site: "Oral",
+  contraindications: ["Incorrect size selection"],
+  advantages: [
+    "Preformed curve reduces pressure on lips",
+    "Improved fixation stability"
+  ],
+  preferred_in: [
+    "ENT surgery",
+    "Oral and maxillofacial surgery"
+  ],
+  warnings: [
+    "Correct orientation is essential",
+    "Limited repositioning once placed"
+  ],
+  backup_tools: ["Standard ETT"],
+  skill_level: "Intermediate",
+  image: { alt: "Polar Tracheal Tube", url: "images/ett_polar.png" },
+  supported_procedure_types: [
+    "ENT Surgery",
+    "Dental Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Need for preformed tube"
+  ],
+  contraindicated_conditions: [],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_rae",
+  tool_name: "RAE Tracheal Tube",
+  tool_category: "Endotracheal – Preformed",
+  insertion_method: "Oral or nasal intubation using laryngoscope",
+  insertion_site: "Oral / Nasal",
+  contraindications: ["Incorrect orientation"],
+  advantages: [
+    "Keeps tube away from surgical field",
+    "Preformed shape reduces kinking"
+  ],
+  preferred_in: [
+    "ENT surgery",
+    "Maxillofacial surgery"
+  ],
+  warnings: [
+    "Tube depth must be carefully checked",
+    "Limited ability to adjust once fixed"
+  ],
+  backup_tools: ["Standard ETT"],
+  skill_level: "Intermediate",
+  image: { alt: "RAE Tracheal Tube", url: "images/ett_rae.png" },
+  supported_procedure_types: [
+    "ENT Surgery",
+    "Dental Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Surgical field near mouth or nose"
+  ],
+  contraindicated_conditions: [],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_rae",
+  tool_name: "RAE Tracheal Tube",
+  tool_category: "Endotracheal – Preformed",
+  insertion_method: "Oral or nasal intubation using laryngoscope",
+  insertion_site: "Oral / Nasal",
+  contraindications: ["Incorrect orientation"],
+  advantages: [
+    "Keeps tube away from surgical field",
+    "Preformed shape reduces kinking"
+  ],
+  preferred_in: [
+    "ENT surgery",
+    "Maxillofacial surgery"
+  ],
+  warnings: [
+    "Tube depth must be carefully checked",
+    "Limited ability to adjust once fixed"
+  ],
+  backup_tools: ["Standard ETT"],
+  skill_level: "Intermediate",
+  image: { alt: "RAE Tracheal Tube", url: "images/ett_rae.png" },
+  supported_procedure_types: [
+    "ENT Surgery",
+    "Dental Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Surgical field near mouth or nose"
+  ],
+  contraindicated_conditions: [],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_rae_north",
+  tool_name: "North-facing RAE Tracheal Tube",
+  tool_category: "Endotracheal – Preformed Oral",
+  insertion_method: "Oral intubation using laryngoscope",
+  insertion_site: "Oral",
+  contraindications: ["Need for nasal intubation"],
+  advantages: [
+    "Keeps tube directed upward",
+    "Clear surgical field for oral surgery"
+  ],
+  preferred_in: [
+    "Cleft palate surgery",
+    "Oral surgery"
+  ],
+  warnings: [
+    "Confirm depth after fixation"
+  ],
+  backup_tools: ["Standard ETT"],
+  skill_level: "Intermediate",
+  image: { alt: "North-facing RAE", url: "images/ett_rae_north.png" },
+  supported_procedure_types: [
+    "Oral Surgery",
+    "ENT Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Oral surgical access required"
+  ],
+  contraindicated_conditions: [],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_rae_south",
+  tool_name: "South-facing RAE Tracheal Tube",
+  tool_category: "Endotracheal – Preformed Nasal",
+  insertion_method: "Nasal intubation using laryngoscope or Magill forceps",
+  insertion_site: "Nasal",
+  contraindications: ["Basal skull fracture", "Coagulopathy"],
+  advantages: [
+    "Keeps tube away from facial surgical field",
+    "Ideal for dental surgery"
+  ],
+  preferred_in: [
+    "Dental surgery",
+    "Maxillofacial surgery"
+  ],
+  warnings: [
+    "Risk of nasal bleeding",
+    "Confirm bilateral breath sounds"
+  ],
+  backup_tools: ["Oral ETT"],
+  skill_level: "Advanced",
+  image: { alt: "South-facing RAE", url: "images/ett_rae_south.png" },
+  supported_procedure_types: [
+    "Dental Surgery",
+    "Maxillofacial Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Need for nasal intubation"
+  ],
+  contraindicated_conditions: [
+    "Base of skull fracture"
+  ],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_laser",
+  tool_name: "Laser Resistant Tracheal Tube",
+  tool_category: "Endotracheal – Laser Surgery",
+  insertion_method: "Oral intubation using laryngoscope",
+  insertion_site: "Oral",
+  contraindications: ["Non-laser procedures"],
+  advantages: [
+    "Resistant to laser-induced ignition",
+    "Reduces airway fire risk"
+  ],
+  preferred_in: [
+    "Laser airway surgery"
+  ],
+  warnings: [
+    "Use lowest FiO2 possible",
+    "Cuff may need saline inflation with dye"
+  ],
+  backup_tools: ["Standard ETT"],
+  skill_level: "Advanced",
+  image: { alt: "Laser Resistant ETT", url: "images/ett_laser.png" },
+  supported_procedure_types: [
+    "Laser Laryngeal Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Laser use in airway"
+  ],
+  contraindicated_conditions: [],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_parker",
+  tool_name: "Parker Flex-Tip Tracheal Tube",
+  tool_category: "Endotracheal – Atraumatic Tip",
+  insertion_method: "Oral or nasal intubation using laryngoscope",
+  insertion_site: "Oral / Nasal",
+  contraindications: [],
+  advantages: [
+    "Flexible atraumatic tip",
+    "Reduced vocal cord trauma",
+    "Improved first-pass success"
+  ],
+  preferred_in: [
+    "Difficult airway",
+    "Nasal intubation"
+  ],
+  warnings: [
+    "Still confirm placement with capnography"
+  ],
+  backup_tools: ["Standard ETT"],
+  skill_level: "Intermediate",
+  image: { alt: "Parker Tracheal Tube", url: "images/ett_parker.png" },
+  supported_procedure_types: [
+    "General Surgery",
+    "ENT Surgery"
+  ],
+  supported_locations: [
+    "OR",
+    "ED",
+    "ICU"
+  ],
+  preferred_conditions: [
+    "Need to reduce airway trauma"
+  ],
+  contraindicated_conditions: [],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Emergency", "Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_mlt",
+  tool_name: "Microlaryngeal Tracheal Tube (MLT)",
+  tool_category: "Endotracheal – Small Diameter",
+  insertion_method: "Oral intubation using laryngoscope",
+  insertion_site: "Oral",
+  contraindications: ["Need for high ventilation pressures"],
+  advantages: [
+    "Small internal diameter",
+    "Improved surgical exposure of vocal cords"
+  ],
+  preferred_in: [
+    "Laryngeal surgery",
+    "Microlaryngoscopy"
+  ],
+  warnings: [
+    "Increased airway resistance",
+    "Monitor peak airway pressure"
+  ],
+  backup_tools: ["Standard ETT"],
+  skill_level: "Advanced",
+  image: { alt: "Microlaryngeal Tube", url: "images/ett_mlt.png" },
+  supported_procedure_types: [
+    "Laryngeal Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Need for small tube diameter"
+  ],
+  contraindicated_conditions: [
+    "Poor lung compliance"
+  ],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_mlt",
+  tool_name: "Microlaryngeal Tracheal Tube (MLT)",
+  tool_category: "Endotracheal – Small Diameter",
+  insertion_method: "Oral intubation using laryngoscope",
+  insertion_site: "Oral",
+  contraindications: ["Need for high ventilation pressures"],
+  advantages: [
+    "Small internal diameter",
+    "Improved surgical exposure of vocal cords"
+  ],
+  preferred_in: [
+    "Laryngeal surgery",
+    "Microlaryngoscopy"
+  ],
+  warnings: [
+    "Increased airway resistance",
+    "Monitor peak airway pressure"
+  ],
+  backup_tools: ["Standard ETT"],
+  skill_level: "Advanced",
+  image: { alt: "Microlaryngeal Tube", url: "images/ett_mlt.png" },
+  supported_procedure_types: [
+    "Laryngeal Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Need for small tube diameter"
+  ],
+  contraindicated_conditions: [
+    "Poor lung compliance"
+  ],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "ett_emg",
+  tool_name: "Electromyography Endotracheal Tube (EMG Tube)",
+  tool_category: "Endotracheal – Neuromonitoring",
+  insertion_method: "Oral intubation using laryngoscope or video laryngoscope",
+  insertion_site: "Oral",
+  contraindications: ["Use of neuromuscular blockers during monitoring"],
+  advantages: [
+    "Allows recurrent laryngeal nerve monitoring",
+    "Reduces risk of nerve injury"
+  ],
+  preferred_in: [
+    "Thyroid surgery",
+    "Parathyroid surgery"
+  ],
+  warnings: [
+    "Correct electrode positioning essential",
+    "Avoid muscle relaxants after placement"
+  ],
+  backup_tools: ["Standard ETT"],
+  skill_level: "Advanced",
+  image: { alt: "EMG Endotracheal Tube", url: "images/ett_emg.png" },
+  supported_procedure_types: [
+    "Thyroid Surgery",
+    "Neck Surgery"
+  ],
+  supported_locations: [
+    "Operating Room (OR)"
+  ],
+  preferred_conditions: [
+    "Need for nerve monitoring"
+  ],
+  contraindicated_conditions: [
+    "Continuous neuromuscular blockade"
+  ],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated"]
+},
 
+{
+  id: "lma_generic",
+  tool_name: "Laryngeal Mask Airway (LMA) — generic",
+  tool_category: "Supraglottic",
+  insertion_method: "Oral insertion, advance until mask seats in hypopharynx then inflate (if inflatable cuff)",
+  insertion_site: "Oral / Oropharynx",
+  contraindications: ["Unprotected full stomach / high aspiration risk (relative)", "Severely restricted mouth opening", "Upper airway obstruction proximal to larynx"],
+  advantages: ["Rapid placement", "Less stimulation than intubation", "Useful for elective GA and rescue airway"],
+  preferred_in: ["Elective general anaesthesia in fasted patients", "Rescue airway in difficult ventilation/intubation"],
+  warnings: ["Monitor seal pressure; not a definitive aspiration-proof airway unless 2nd-generation with gastric channel", "Ensure correct cuff pressure if inflatable"],
+  backup_tools: ["Endotracheal tube", "Video laryngoscope", "Bougie"],
+  skill_level: "Basic",
+  image: { alt: "Generic LMA", url: "images/lma_generic.png" },
+  supported_procedure_types: ["General surgery", "Short ENT procedures", "Day case anaesthesia"],
+  supported_locations: ["Operating Room (OR)", "Emergency Department (ED)", "ICU (rescue)"],
+  preferred_conditions: ["Fasted elective patient", "No high aspiration risk"],
+  contraindicated_conditions: ["Active vomiting / high aspiration risk"],
+  consciousness_levels: ["Sedated", "Unconscious (with no gag reflex)"],
+  urgency_levels: ["Non-emergency", "Rescue emergency"],
+  sedation_status: ["Sedated", "Anesthetized"]
+},
+
+{
+  id: "lma_classic",
+  tool_name: "LMA Classic",
+  tool_category: "Supraglottic — 1st generation LMA",
+  insertion_method: "Oral insertion until cuff seats in hypopharynx, then inflate cuff",
+  insertion_site: "Oral",
+  contraindications: ["High aspiration risk", "Poor pulmonary compliance requiring high airway pressures"],
+  advantages: ["Simple, reusable design", "Fast insertion — well known standard device"],
+  preferred_in: ["Routine GA for fasted patients", "Short operations"],
+  warnings: ["Not designed primarily for gastric suctioning; limited protection against aspiration"],
+  backup_tools: ["LMA ProSeal/Supreme (if gastric access needed)", "ETT"],
+  skill_level: "Basic",
+  image: { alt: "LMA Classic", url: "images/lma_classic.png" },
+  supported_procedure_types: ["Day-case surgery", "ENT (select)", "Minor general surgery"],
+  supported_locations: ["OR", "ED (rescue)"],
+  preferred_conditions: ["Fasted elective patients"],
+  contraindicated_conditions: ["High aspiration risk"],
+  consciousness_levels: ["Sedated", "Unconscious"],
+  urgency_levels: ["Non-emergency", "Rescue"],
+  sedation_status: ["Anesthetized"]
+},
+
+{
+  id: "lma_unique",
+  tool_name: "LMA Unique",
+  tool_category: "Supraglottic — single-use LMA",
+  insertion_method: "Oral insertion, inflate cuff (single-use disposable design)",
+  insertion_site: "Oral",
+  contraindications: ["High aspiration risk", "Very high airway pressures required"],
+  advantages: ["Single-use (sterile) — avoids cross-infection", "Similar handling to Classic"],
+  preferred_in: ["Day-case anaesthesia", "Settings preferring disposables"],
+  warnings: ["Inflate cuff to recommended pressure", "Not for patients with high aspiration risk"],
+  backup_tools: ["LMA ProSeal / ETT"],
+  skill_level: "Basic",
+  image: { alt: "LMA Unique", url: "images/lma_unique.png" },
+  supported_procedure_types: ["Minor surgeries", "Day-case procedures"],
+  supported_locations: ["OR", "ED"],
+  preferred_conditions: ["Fasted elective patients"],
+  contraindicated_conditions: ["High aspiration risk"],
+  consciousness_levels: ["Sedated", "Unconscious"],
+  urgency_levels: ["Non-emergency", "Rescue"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "lma_proseal",
+  tool_name: "LMA ProSeal",
+  tool_category: "Supraglottic — 2nd generation LMA with drain channel",
+  insertion_method: "Oral insertion; inflatable cuff; has gastric/drain channel for gastric tube",
+  insertion_site: "Oral / Hypopharynx",
+  contraindications: ["Severe upper GI bleeding with active aspiration risk (use definitive airway)"],
+  advantages: ["Better seal and higher oropharyngeal leak pressure than classic", "Gastric/drain channel reduces gastric insufflation risk"],
+  preferred_in: ["Cases needing higher seal pressure or gastric access", "Some laparoscopic cases under controlled settings"],
+  warnings: ["Confirm position of drain channel; monitor cuff pressure"],
+  backup_tools: ["ETT", "LMA Supreme"],
+  skill_level: "Intermediate",
+  image: { alt: "LMA ProSeal", url: "images/lma_proseal.png" },
+  supported_procedure_types: ["Abdominal surgery (select)", "Laparoscopy (selected cases)"],
+  supported_locations: ["OR", "ED (rescue)"],
+  preferred_conditions: ["Need for higher seal pressure", "Controlled ventilation"],
+  contraindicated_conditions: ["Active uncontrolled aspiration"],
+  consciousness_levels: ["Anesthetized", "Sedated"],
+  urgency_levels: ["Non-emergency", "Rescue"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "lma_unique",
+  tool_name: "LMA Unique",
+  tool_category: "Supraglottic — single-use LMA",
+  insertion_method: "Oral insertion, inflate cuff (single-use disposable design)",
+  insertion_site: "Oral",
+  contraindications: ["High aspiration risk", "Very high airway pressures required"],
+  advantages: ["Single-use (sterile) — avoids cross-infection", "Similar handling to Classic"],
+  preferred_in: ["Day-case anaesthesia", "Settings preferring disposables"],
+  warnings: ["Inflate cuff to recommended pressure", "Not for patients with high aspiration risk"],
+  backup_tools: ["LMA ProSeal / ETT"],
+  skill_level: "Basic",
+  image: { alt: "LMA Unique", url: "images/lma_unique.png" },
+  supported_procedure_types: ["Minor surgeries", "Day-case procedures"],
+  supported_locations: ["OR", "ED"],
+  preferred_conditions: ["Fasted elective patients"],
+  contraindicated_conditions: ["High aspiration risk"],
+  consciousness_levels: ["Sedated", "Unconscious"],
+  urgency_levels: ["Non-emergency", "Rescue"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "lma_proseal",
+  tool_name: "LMA ProSeal",
+  tool_category: "Supraglottic — 2nd generation LMA with drain channel",
+  insertion_method: "Oral insertion; inflatable cuff; has gastric/drain channel for gastric tube",
+  insertion_site: "Oral / Hypopharynx",
+  contraindications: ["Severe upper GI bleeding with active aspiration risk (use definitive airway)"],
+  advantages: ["Better seal and higher oropharyngeal leak pressure than classic", "Gastric/drain channel reduces gastric insufflation risk"],
+  preferred_in: ["Cases needing higher seal pressure or gastric access", "Some laparoscopic cases under controlled settings"],
+  warnings: ["Confirm position of drain channel; monitor cuff pressure"],
+  backup_tools: ["ETT", "LMA Supreme"],
+  skill_level: "Intermediate",
+  image: { alt: "LMA ProSeal", url: "images/lma_proseal.png" },
+  supported_procedure_types: ["Abdominal surgery (select)", "Laparoscopy (selected cases)"],
+  supported_locations: ["OR", "ED (rescue)"],
+  preferred_conditions: ["Need for higher seal pressure", "Controlled ventilation"],
+  contraindicated_conditions: ["Active uncontrolled aspiration"],
+  consciousness_levels: ["Anesthetized", "Sedated"],
+  urgency_levels: ["Non-emergency", "Rescue"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "lma_supreme",
+  tool_name: "LMA Supreme",
+  tool_category: "Supraglottic — 2nd generation single-use LMA with drain channel",
+  insertion_method: "Oral insertion; preformed curved tube; inflatable cuff; gastric channel present",
+  insertion_site: "Oral",
+  contraindications: ["High aspiration risk (relative)"],
+  advantages: ["Preformed curved airway for easier insertion", "Gastric access via drain channel", "Single-use hygiene benefit"],
+  preferred_in: ["Emergency airway rescue", "Elective GA when a disposable LMA is preferred"],
+  warnings: ["Check drain channel patency; confirm cuff pressure"],
+  backup_tools: ["ETT", "LMA ProSeal"],
+  skill_level: "Basic–Intermediate",
+  image: { alt: "LMA Supreme", url: "images/lma_supreme.png" },
+  supported_procedure_types: ["General surgery", "Day-case procedures", "Emergency rescue ventilation"],
+  supported_locations: ["OR", "ED", "ICU"],
+  preferred_conditions: ["Need for gastric/venting access", "Fasted patients"],
+  contraindicated_conditions: ["Active vomiting / high aspiration risk"],
+  consciousness_levels: ["Anesthetized", "Sedated"],
+  urgency_levels: ["Non-emergency", "Rescue emergency"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "lma_reinforced",
+  tool_name : "Reinforced / Flexible LMA",
+  tool_category: "Supraglottic — reinforced / flexible tube",
+  insertion_method: "Oral insertion; flexible/reinforced airway tube designed to tolerate bending/kinking",
+  insertion_site: "Oral",
+  contraindications: ["High airway pressures sometimes limit use"],
+  advantages: ["Flexible shaft allows positioning without kinking (useful for head/neck surgery)", "Maintains seal even with neck flexion/rotation"],
+  preferred_in: ["Head & neck surgery where tube may be flexed", "Dental/ENT with special positioning"],
+  warnings: ["Still monitor cuff pressure; flexible shaft may make blind intubation more difficult"],
+  backup_tools: ["Standard LMA", "ETT with flexible stylet"],
+  skill_level: "Intermediate",
+  image: { alt: "Reinforced LMA", url: "images/lma_reinforced.png" },
+  supported_procedure_types: ["ENT surgery (select)", "Maxillofacial procedures (select)"],
+  supported_locations: ["OR"],
+  preferred_conditions: ["Need to flex/rotate head during surgery"],
+  contraindicated_conditions: ["High ventilation pressure requirements"],
+  consciousness_levels: ["Anesthetized"],
+  urgency_levels: ["Non-emergency", "Rescue"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "lma_flexible",
+  tool_name: "Flexible LMA",
+  tool_category: "Supraglottic — flexible silicone shaft LMA",
+  insertion_method: "Oral insertion; flexible silicone shaft; cuff inflation as per size",
+  insertion_site: "Oral",
+  contraindications: ["High airway pressure ventilation"],
+  advantages: ["Low-profile flexible shaft — useful when tube must be routed away from surgical field"],
+  preferred_in: ["Head/neck/ENT procedures needing tube routing"],
+  warnings: ["Insertion sometimes slightly slower; check seal and cuff pressure"],
+  backup_tools: ["Standard LMA", "ETT"],
+  skill_level: "Intermediate",
+  image: { alt: "Flexible LMA", url: "images/lma_flexible.png" },
+  supported_procedure_types: ["ENT", "Head & neck surgery (selected cases)"],
+  supported_locations: ["OR"],
+  preferred_conditions: ["Surgical positioning requiring shaft flexibility"],
+  contraindicated_conditions: ["High airway pressure ventilation"],
+  consciousness_levels: ["Anesthetized"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "ilma_fastrach",
+  tool_name: "Intubating LMA (ILMA) / LMA Fastrach",
+  tool_category: "Supraglottic — designed to facilitate blind/tracheal intubation",
+  insertion_method: "Oral insertion; used as conduit for blind or guided endotracheal intubation without head/neck movement",
+  insertion_site: "Oral / Hypopharynx",
+  contraindications: ["Very small mouth opening preventing device insertion"],
+  advantages: ["Designed specifically to allow tracheal intubation through the device", "Useful in difficult airway where neck movement must be minimized"],
+  preferred_in: ["Difficult airway scenarios as intubation conduit", "Cervical spine immobilization cases"],
+  warnings: ["Intubation still requires skill; confirm tube placement with capnography"],
+  backup_tools: ["Video laryngoscope", "Flexible bronchoscope"],
+  skill_level: "Advanced",
+  image: { alt: "LMA Fastrach / ILMA", url: "images/lma_fastrach.png" },
+  supported_procedure_types: ["Trauma cases with cervical immobilization", "Difficult airway management"],
+  supported_locations: ["OR", "ED", "ICU"],
+  preferred_conditions: ["Need to intubate without neck movement"],
+  contraindicated_conditions: ["Extremely limited mouth opening"],
+  consciousness_levels: ["Anesthetized", "Sedated"],
+  urgency_levels: ["Emergency", "Non-emergency difficult airway"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "lma_ctrach",
+  tool_name: "LMA CTrach",
+  tool_category: "Intubating LMA with integrated fiberoptic/visualisation",
+  insertion_method: "Oral insertion; device provides visual channel to see glottis and guide intubation",
+  insertion_site: "Oral",
+  contraindications: ["Severe secretions/bleeding obscuring view"],
+  advantages: ["Allows visualised intubation through an LMA platform", "Useful when direct laryngoscopy is difficult"],
+  preferred_in: ["Difficult airway with need for visualised tracheal intubation"],
+  warnings: ["Requires training to operate the integrated viewer and pass ETT"],
+  backup_tools: ["Fiberoptic bronchoscope", "Video laryngoscope"],
+  skill_level: "Advanced",
+  image: { alt: "LMA CTrach", url: "images/lma_ctrach.png" },
+  supported_procedure_types: ["Difficult airway management scenarios"],
+  supported_locations: ["OR", "ED"],
+  preferred_conditions: ["Difficult airway where visual guidance helps"],
+  contraindicated_conditions: ["Poor visibility due to blood/secretions"],
+  consciousness_levels: ["Anesthetized"],
+  urgency_levels: ["Emergency", "Non-emergency difficult airway"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "combitube_etc",
+  tool_name: "Esophageal-Tracheal Combitube (ETC) / Combitube",
+  tool_category: "Supraglottic double-lumen emergency airway",
+  insertion_method: "Blind oral insertion; two-lumen device — ventilation possible whether tube in esophagus (usual) or trachea; inflate both cuffs",
+  insertion_site: "Oral — seals hypopharynx and upper esophagus/trachea depending position",
+  contraindications: ["Conscious patients with intact gag reflex (poor tolerance)", "Known esophageal disease where inflation risks perforation (relative)"],
+  advantages: ["High first-pass success in difficult/trauma airways", "Can ventilate whether positioned in esophagus or trachea"],
+  preferred_in: ["Prehospital/ED difficult airway where rapid rescue ventilation needed", "Massive facial/airway trauma making intubation hard"],
+  warnings: ["Monitor cuff volumes and pressures; confirm ventilation and chest rise; subsequent definitive airway often required"],
+  backup_tools: ["ETT (definitive airway)", "Surgical airway if necessary"],
+  skill_level: "Intermediate",
+  image: { alt: "Esophageal-Tracheal Combitube", url: "images/combitube.png" },
+  supported_procedure_types: ["Emergency airway rescue", "Trauma airway management"],
+  supported_locations: ["ED", "Prehospital", "OR (as rescue)"],
+  preferred_conditions: ["Cannot intubate / cannot ventilate rescue scenarios"],
+  contraindicated_conditions: ["Awake patient with gag reflex", "Suspected esophageal rupture"],
+  consciousness_levels: ["Unconscious", "Sedated (rare)"],
+  urgency_levels: ["Emergency / Rescue"],
+  sedation_status: ["Often used without prior sedation in cardiac arrest/rescue"]
+},
+{
+  id: "amd_generic",
+  tool_name: "Airway Management Device (AMD) — generic supraglottic",
+  tool_category: "Supraglottic / Airway adjuncts",
+  insertion_method: "Varies by device (oral placement into hypopharynx), see device-specific instructions",
+  insertion_site: "Oral",
+  contraindications: ["High aspiration risk (device dependent)"],
+  advantages: ["Rapid airway control", "Less invasive than ETT in many cases"],
+  preferred_in: ["Rescue ventilation", "Short elective procedures (device dependent)"],
+  warnings: ["Check device-specific features (drain channel, cuff type)"],
+  backup_tools: ["ETT", "Surgical airway"],
+  skill_level: "Basic–Intermediate",
+  image: { alt: "Airway Management Device (generic)", url: "images/amd_generic.png" },
+  supported_procedure_types: ["Rescue ventilation", "Elective GA (device dependent)"],
+  supported_locations: ["OR", "ED", "ICU", "Prehospital"],
+  preferred_conditions: ["Depends on specific device"],
+  contraindicated_conditions: ["Depends on specific device"],
+  consciousness_levels: ["Sedated", "Unconscious"],
+  urgency_levels: ["Emergency", "Non-emergency"],
+  sedation_status: ["Anesthetized / Sedated"]
+},
+{
+  id: "portex_soft_seal",
+  tool_name: "Portex Soft-Seal Laryngeal Mask",
+  tool_category: "Supraglottic — single-use Soft-Seal cuff design",
+  insertion_method: "Oral insertion; designed without obstructive epiglottic bars; inflate cuff per instructions",
+  insertion_site: "Oral",
+  contraindications: ["High aspiration risk (relative)"],
+  advantages: ["Soft-Seal cuff designed to improve oropharyngeal seal", "No epiglottic bars facilitates fiberoptic access"],
+  preferred_in: ["Cases requiring fiberoptic access through airway", "Day-case anaesthesia"],
+  warnings: ["Observe cuff pressure recommendations; single-use variants available"],
+  backup_tools: ["ETT", "LMA ProSeal if gastric access required"],
+  skill_level: "Basic",
+  image: { alt: "Portex Soft-Seal LMA", url: "images/portex_softseal.png" },
+  supported_procedure_types: ["Pediatrics (sizes) and adult day-case surgery"],
+  supported_locations: ["OR"],
+  preferred_conditions: ["Need for unobstructed fiberoptic access"],
+  contraindicated_conditions: ["High aspiration risk"],
+  consciousness_levels: ["Anesthetized", "Sedated"],
+  urgency_levels: ["Non-emergency", "Rescue"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "ambu_auraonce",
+  tool_name: "Ambu AuraOnce",
+  tool_category: "Supraglottic — single-use anatomically curved LMA",
+  insertion_method: "Oral insertion; preformed anatomical curve; inflate cuff",
+  insertion_site: "Oral",
+  contraindications: ["High aspiration risk", "Very low lung compliance needing high pressures"],
+  advantages: ["Anatomical preformed curve for easy insertion", "Single-use (sterile) convenience"],
+  preferred_in: ["Day-case anesthesia", "Settings preferring disposable devices"],
+  warnings: ["Monitor cuff pressure; ensure adequate seal for positive pressure ventilation"],
+  backup_tools: ["ETT", "LMA Supreme/ProSeal"],
+  skill_level: "Basic",
+  image: { alt: "Ambu AuraOnce", url: "images/ambu_auraonce.png" },
+  supported_procedure_types: ["Day case surgery", "Short general anaesthesia"],
+  supported_locations: ["OR", "ED"],
+  preferred_conditions: ["Fasted elective patients"],
+  contraindicated_conditions: ["High aspiration risk"],
+  consciousness_levels: ["Anesthetized"],
+  urgency_levels: ["Non-emergency", "Rescue"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "ambu_aura40",
+  tool_name: "Ambu Aura40 (reusable)",
+  tool_category: "Supraglottic — reusable laryngeal mask",
+  insertion_method: "Oral insertion; reusable steam-autoclavable design with anatomical curvature",
+  insertion_site: "Oral",
+  contraindications: ["High aspiration risk"],
+  advantages: ["Reusable option with anatomy-mimicking curve", "Good seal characteristics"],
+  preferred_in: ["Hospitals preferring reusable LMAs", "Routine OR use"],
+  warnings: ["Follow reprocessing/autoclave instructions closely"],
+  backup_tools: ["ETT", "Disposable LMAs"],
+  skill_level: "Basic",
+  image: { alt: "Ambu Aura40", url: "images/ambu_aura40.png" },
+  supported_procedure_types: ["General surgery", "Day case"],
+  supported_locations: ["OR"],
+  preferred_conditions: ["Routine GA in fasted patients"],
+  contraindicated_conditions: ["High aspiration risk"],
+  consciousness_levels: ["Anesthetized"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "king_lt",
+  tool_name: "King Laryngeal Tube (King LT family)",
+  tool_category: "Supraglottic laryngeal tube (single/double lumen variants)",
+  insertion_method: "Oral insertion; large proximal cuff seals hypopharynx and distal cuff seals upper esophagus; some models have gastric channel",
+  insertion_site: "Oral / Hypopharynx",
+  contraindications: ["Awake patient with intact gag reflex", "Known esophageal pathology (relative)"],
+  advantages: ["Easy blind insertion; can provide effective ventilation and allow gastric drain (models)", "Good for prehospital and emergency rescue airway"],
+  preferred_in: ["Prehospital/EMS airway management", "ED rescue ventilation when ETT not feasible"],
+  warnings: ["Confirm chest rise and capnography; many devices are single-use or disposable"],
+  backup_tools: ["ETT", "Combitube"],
+  skill_level: "Basic–Intermediate",
+  image: { alt: "King Laryngeal Tube", url: "images/king_lt.png" },
+  supported_procedure_types: ["Emergency airway rescue", "Short ventilatory support in controlled settings"],
+  supported_locations: ["Prehospital", "ED", "OR (rescue)"],
+  preferred_conditions: ["Cannot intubate / need quick airway"],
+  contraindicated_conditions: ["Awake patient with gag reflex", "Esophageal disease"],
+  consciousness_levels: ["Unconscious", "Sedated"],
+  urgency_levels: ["Emergency", "Rescue"],
+  sedation_status: ["Often used without prior sedation in arrest scenarios"]
+},
+{
+  id: "king_ltsd",
+  tool_name: "King LTS-D (Disposable) / King LTS-D with suction (LTS-D / LTS-S variants)",
+  tool_category: "Supraglottic laryngeal tube — disposable with gastric channel or suction variants",
+  insertion_method: "Oral insertion; inflated cuffs; separate channel allows gastric tube passage and suctioning (model dependent)",
+  insertion_site: "Oral",
+  contraindications: ["Awake patient with gag reflex", "Suspected esophageal injury"],
+  advantages: ["Disposable, quick insertion, gastric access for decompression", "Stable during CPR/transport"],
+  preferred_in: ["Prehospital, EMS, ED, airway rescue during CPR/transport"],
+  warnings: ["Ensure correct cuff volumes; monitor ventilation pressures; confirm tube position"],
+  backup_tools: ["ETT", "Surgical airway"],
+  skill_level: "Basic",
+  image: { alt: "King LTS-D", url: "images/king_ltsd.png" },
+  supported_procedure_types: ["Emergency airway rescue", "Transport/CPR scenarios"],
+  supported_locations: ["Prehospital", "ED", "ICU (transport)"],
+  preferred_conditions: ["Cardiac arrest, emergency airway"], 
+  contraindicated_conditions: ["Conscious patient with gag reflex", "Esophageal pathology (relative)"],
+  consciousness_levels: ["Unconscious"],
+  urgency_levels: ["Emergency", "Rescue"],
+  sedation_status: ["Often none (used in cardiac arrest)"]
+},
+{
+  id: "cobra_pla",
+  tool_name: "Cobra Perilaryngeal Airway (CobraPLA)",
+  tool_category: "Supraglottic — perilaryngeal airway",
+  insertion_method: "Oral insertion; distinctive 'cobra' head that abuts aryepiglottic folds; inflatable cuff",
+  insertion_site: "Oral / Perilaryngeal",
+  contraindications: ["Severe oropharyngeal bleeding that obscures placement", "Awake patient with gag reflex (relative)"],
+  advantages: ["Good seal pressures; insertion characteristics similar to LMA", "May provide higher airway seal pressure in some studies"],
+  preferred_in: ["Rescue airway and selected anaesthesia cases where higher seal pressure is desirable"],
+  warnings: ["Monitor cuff pressure; watch for postoperative sore throat related to cuff pressure"],
+  backup_tools: ["LMA", "ETT"],
+  skill_level: "Basic–Intermediate",
+  image: { alt: "Cobra Perilaryngeal Airway", url: "images/cobra_pla.png" },
+  supported_procedure_types: ["Rescue ventilation", "Short general anaesthesia (selected)"],
+  supported_locations: ["OR", "ED"],
+  preferred_conditions: ["Need for higher seal pressure"],
+  contraindicated_conditions: ["Awake patient with gag reflex"],
+  consciousness_levels: ["Anesthetized", "Unconscious"],
+  urgency_levels: ["Non-emergency", "Rescue"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "slipa",
+  tool_name: "SLIPA (Streamlined Liner of the Pharynx Airway)",
+  tool_category: "Supraglottic — liner type (disposable) that seals without an inflatable cuff",
+  insertion_method: "Oral insertion; designed to seat in pharynx and create seal by anatomy (some models have preformed sizes)",
+  insertion_site: "Oral / Pharynx",
+  contraindications: ["Awake patient with gag reflex", "Patients with peculiar pharyngeal anatomy preventing seal"],
+  advantages: ["Rapid insertion; seals without inflatable cuff; may give good sealing pressures"],
+  preferred_in: ["Day-case surgeries, gynecologic operations (reported in literature)"],
+  warnings: ["Proper size selection important; some techniques recommend prewarming for better fit"],
+  backup_tools: ["LMA ProSeal/Supreme", "ETT"],
+  skill_level: "Basic–Intermediate",
+  image: { alt: "SLIPA airway", url: "images/slipa.png" },
+  supported_procedure_types: ["Day-case surgery", "Gynecologic operations (reported)"],
+  supported_locations: ["OR"],
+  preferred_conditions: ["Elective, fasted patients"],
+  contraindicated_conditions: ["High aspiration risk"],
+  consciousness_levels: ["Anesthetized"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "slipa",
+  tool_name: "SLIPA (Streamlined Liner of the Pharynx Airway)",
+  tool_category: "Supraglottic — liner type (disposable) that seals without an inflatable cuff",
+  insertion_method: "Oral insertion; designed to seat in pharynx and create seal by anatomy (some models have preformed sizes)",
+  insertion_site: "Oral / Pharynx",
+  contraindications: ["Awake patient with gag reflex", "Patients with peculiar pharyngeal anatomy preventing seal"],
+  advantages: ["Rapid insertion; seals without inflatable cuff; may give good sealing pressures"],
+  preferred_in: ["Day-case surgeries, gynecologic operations (reported in literature)"],
+  warnings: ["Proper size selection important; some techniques recommend prewarming for better fit"],
+  backup_tools: ["LMA ProSeal/Supreme", "ETT"],
+  skill_level: "Basic–Intermediate",
+  image: { alt: "SLIPA airway", url: "images/slipa.png" },
+  supported_procedure_types: ["Day-case surgery", "Gynecologic operations (reported)"],
+  supported_locations: ["OR"],
+  preferred_conditions: ["Elective, fasted patients"],
+  contraindicated_conditions: ["High aspiration risk"],
+  consciousness_levels: ["Anesthetized"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "i_gel",
+  tool_name: "i-gel Supraglottic Airway",
+  tool_category: "Supraglottic — 2nd generation, non-inflatable cuff",
+  insertion_method: "Oral insertion; anatomically shaped non-inflatable thermoplastic cuff that seals by shape",
+  insertion_site: "Oral / Perilaryngeal",
+  contraindications: ["Severe airway obstruction proximal to larynx", "Awake patient with intact gag reflex (relative)"],
+  advantages: ["No inflatable cuff (reduces cuff-related trauma)", "Gastric channel available on some sizes/models", "Quick insertion; single-use options"],
+  preferred_in: ["Emergency and anaesthesia settings; rescue airway; resuscitation algorithms"],
+  warnings: ["Confirm ventilation and position; choose correct size for anatomy"],
+  backup_tools: ["ETT", "LMA ProSeal/Supreme"],
+  skill_level: "Basic–Intermediate",
+  image: { alt: "i-gel supraglottic", url: "images/igel.png" },
+  supported_procedure_types: ["Rescue ventilation", "Routine GA in fasted patients", "Resuscitation"],
+  supported_locations: ["OR", "ED", "Prehospital", "ICU"],
+  preferred_conditions: ["Need for rapid airway with minimal trauma", "Resuscitation/EMS use"],
+  contraindicated_conditions: ["Active aspiration risk (relative)"],
+  consciousness_levels: ["Anesthetized", "Unconscious"],
+  urgency_levels: ["Emergency", "Non-emergency"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "lma_intubating_variants",
+  tool_name: "Intubating LMA variants (ILMA / Fastrach family)",
+  tool_category: "Supraglottic — intubation conduit family",
+  insertion_method: "Oral insertion then use as conduit for ETT (blind or guided), allows ventilation while intubating",
+  insertion_site: "Oral",
+  contraindications: ["Very limited mouth opening preventing insertion"],
+  advantages: ["Maintains ventilation while enabling tracheal intubation", "Useful in restricted neck movement cases"],
+  preferred_in: ["Difficult airway where neck movement contraindicated", "Cervical spine immobilization"],
+  warnings: ["Requires operator skill for blind intubation; confirm with capnography"],
+  backup_tools: ["Flexible bronchoscope", "Video laryngoscope"],
+  skill_level: "Advanced",
+  image: { alt: "Intubating LMA variants", url: "images/ilma_family.png" },
+  supported_procedure_types: ["Trauma with immobilized neck", "Difficult airway management"],
+  supported_locations: ["OR", "ED", "ICU"],
+  preferred_conditions: ["Need to intubate without neck movement"],
+  contraindicated_conditions: ["Extremely limited mouth opening"],
+  consciousness_levels: ["Anesthetized"],
+  urgency_levels: ["Emergency", "Non-emergency difficult airway"],
+  sedation_status: ["Anesthetized"]
+},
+{
+  id: "lma_supplied_examples_note",
+  tool_name: "Notes: variants & clinical selection",
+  tool_category: "Reference / guidance",
+  insertion_method: "Device-specific",
+  insertion_site: "Oral",
+  contraindications: ["Assess aspiration risk per device; drain channel can mitigate but not eliminate aspiration risk"],
+  advantages: ["2nd generation devices (ProSeal, Supreme, i-gel, King LTS, etc.) add gastric access/seal improvements"],
+  preferred_in: ["When higher seal pressure or gastric access is required choose 2nd-generation devices"],
+  warnings: ["Always confirm placement (capnography, chest rise); cuff/pressure management important"],
+  backup_tools: ["ETT", "Video laryngoscope", "Fiberoptic bronchoscope", "Surgical airway"],
+  skill_level: "Varies",
+  image: { alt: "Supraglottic device selection", url: "images/sgA_selection.png" },
+  supported_procedure_types: ["All listed above per device"],
+  supported_locations: ["OR", "ED", "ICU", "Prehospital"],
+  preferred_conditions: ["Depends on device and clinical scenario"],
+  contraindicated_conditions: ["High aspiration risk (consider ETT)"],
+  consciousness_levels: ["Sedated", "Anesthetized", "Unconscious"],
+  urgency_levels: ["Emergency", "Non-emergency"],
+  sedation_status: ["Depends"]
+},
+{
+  id: "tracheostomy_tube",
+  tool_name: "Tracheostomy Tube",
+  tool_category: "Tracheostomy Tubes & Accessories",
+  insertion_method: "Surgical insertion into tracheal stoma",
+  insertion_site: "Trachea via neck stoma",
+  contraindications: ["Uncorrected coagulopathy", "Severe neck infection"], // relative contraindications طبقاً للـ StatPearls
+  advantages: ["Airway protection", "Facilitates ventilation and suctioning"],
+  preferred_in: ["Long-term ventilation", "Weaning from endotracheal tube"],
+  warnings: ["Monitor cuff pressure", "Risk of tracheal injury if overinflated"],
+  backup_tools: ["Bougie", "Tracheal dilators"],
+  skill_level: "Intermediate",
+  image: { alt: "Tracheostomy Tube", url: "images/tracheostomy_tube.png" },
+  supported_procedure_types: [
+    "Long-term ventilation",
+    "Airway management",
+    "Weaning support"
+  ],
+  supported_locations: ["ICU", "Surgical wards", "Homecare with monitoring"],
+  preferred_conditions: ["Prolonged mechanical ventilation", "Airway obstruction bypass"],
+  contraindicated_conditions: ["Uncorrected coagulopathy", "Local infection"],
+  consciousness_levels: ["Sedated", "Unconscious", "Awake if stable"],
+  urgency_levels: ["Planned", "Emergency"],
+  sedation_status: ["Sedated"]
+},
+{
+  id: "fenestrated_tracheostomy_tube",
+  tool_name: "Fenestrated Tracheostomy Tube",
+  tool_category: "Tracheostomy Tubes & Accessories",
+  insertion_method: "Surgical insertion into tracheal stoma",
+  insertion_site: "Trachea via neck stoma",
+  contraindications: ["Newly formed stoma", "Positive pressure ventilation risk"],
+  advantages: ["Allows speech", "Facilitates airflow through upper airway"],
+  preferred_in: ["Weaning trials", "Speech improvement"],
+  warnings: ["Air leak during positive pressure", "Risk of granuloma at fenestration edges"],
+  backup_tools: ["Standard tracheostomy tube", "Inner non-fenestrated cannula"],
+  skill_level: "Advanced",
+  image: { alt: "Fenestrated Tracheostomy Tube", url: "images/fenestrated_tracheostomy_tube.png" },
+  supported_procedure_types: [
+    "Weaning from ventilator",
+    "Speech rehabilitation"
+  ],
+  supported_locations: ["ICU", "ENT wards"],
+  preferred_conditions: ["Patient able to phonate", "Weaning stage"],
+  contraindicated_conditions: ["Poorly healed stoma", "Need for positive pressure ventilation"],
+  consciousness_levels: ["Awake with stability"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Awake / minimal sedation"]
+},
+{
+  id: "metal_tracheostomy_tube",
+  tool_name: "Metal Tracheostomy Tube",
+  tool_category: "Tracheostomy Tubes & Accessories",
+  insertion_method: "Surgical insertion into tracheal stoma",
+  insertion_site: "Trachea via neck stoma",
+  contraindications: ["Need for ventilator circuit connection without adapter"],
+  advantages: ["Reusable after sterilization", "Durable for long-term use"],
+  preferred_in: ["Chronic tracheostomy patients", "Homecare settings"],
+  warnings: ["Rigid design may cause discomfort", "May require adapter for ventilator"],
+  backup_tools: ["Plastic tracheostomy tube"],
+  skill_level: "Intermediate",
+  image: { alt: "Metal Tracheostomy Tube", url: "images/metal_tracheostomy_tube.png" },
+  supported_procedure_types: [
+    "Long-term airway management"
+  ],
+  supported_locations: ["Homecare", "Long-term care facility"],
+  preferred_conditions: ["Stable airway needs", "Chronic care"],
+  contraindicated_conditions: ["Need for frequent suctioning with 15mm connector"],
+  consciousness_levels: ["Awake", "Sedated if needed"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Awake / Sedated"]
+},
+{
+  id: "tracheostomy_button",
+  tool_name: "Tracheostomy Button",
+  tool_category: "Tracheostomy Tubes & Accessories",
+  insertion_method: "Placed into mature tracheostomy stoma",
+  insertion_site: "Tracheal stoma",
+  contraindications: ["Unhealed stoma", "Need for ventilation support"],
+  advantages: ["Minimal airway obstruction", "Easy breathing and speech"],
+  preferred_in: ["Obstructive sleep apnea patients", "Post-decannulation support"],
+  warnings: ["Not suitable for positive pressure ventilation"],
+  backup_tools: ["Standard tracheostomy tube"],
+  skill_level: "Basic",
+  image: { alt: "Tracheostomy Button", url: "images/tracheostomy_button.png" },
+  supported_procedure_types: [
+    "Decannulation",
+    "Sleep breathing support"
+  ],
+  supported_locations: ["Homecare", "Outpatient"],
+  preferred_conditions: ["Mature stoma", "Stable airway"],
+  contraindicated_conditions: ["Ventilation dependency"],
+  consciousness_levels: ["Awake"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Awake"]
+},
+{
+  id: "laryngectomy_tube",
+  tool_name: "Laryngectomy Tube",
+  tool_category: "Tracheostomy Tubes & Accessories",
+  insertion_method: "Inserted surgically after laryngectomy",
+  insertion_site: "Trachea via surgical airway",
+  contraindications: ["Incomplete surgical airway"],
+  advantages: ["Maintains airway post-laryngectomy", "Prevents airway collapse"],
+  preferred_in: ["Total laryngectomy patients"],
+  warnings: ["Requires proper sizing to avoid mucosal injury"],
+  backup_tools: ["Standard tracheostomy tube"],
+  skill_level: "Advanced",
+  image: { alt: "Laryngectomy Tube", url: "images/laryngectomy_tube.png" },
+  supported_procedure_types: [
+    "Post-laryngectomy airway management"
+  ],
+  supported_locations: ["ENT wards", "ICU"],
+  preferred_conditions: ["Post laryngectomy recovery"],
+  contraindicated_conditions: ["No surgical airway"],
+  consciousness_levels: ["Awake / Sedated"],
+  urgency_levels: ["Non-emergency"],
+  sedation_status: ["Sedated / Awake"]
+},
+{
+  id: "double_lumen_endobronchial_tube",
+  tool_name: "Double Lumen Endobronchial Tube (DLT)",
+  tool_category: "Endobronchial Tubes",
+  insertion_method: "Oral intubation directed into bronchus",
+  insertion_site: "Trachea → main bronchus",
+  contraindications: ["Difficult airway", "Tracheal stoma", "Tracheal constriction"],
+  advantages: ["Allows one-lung ventilation", "Facilitates lung isolation"],
+  preferred_in: ["Thoracic surgery", "Lung isolation procedures"],
+  warnings: ["Requires skilled placement", "Risk of airway trauma"],
+  backup_tools: ["Bronchial blocker", "Single lumen tube"],
+  skill_level: "Advanced",
+  image: { alt: "Double Lumen Endobronchial Tube", url: "images/double_lumen_endobronchial_tube.png" },
+  supported_procedure_types: [
+    "Thoracic surgery – lobectomy",
+    "Lung isolation procedures"
+  ],
+  supported_locations: ["OR", "ICU"],
+  preferred_conditions: ["Need for one-lung ventilation"],
+  contraindicated_conditions: ["Limited mouth opening"],
+  consciousness_levels: ["Sedated"],
+  urgency_levels: ["Planned"],
+  sedation_status: ["General anesthesia"]
+},
+{
+  id: "left_sided_double_lumen_tube",
+  tool_name: "Left-sided Double Lumen Tube",
+  tool_category: "Endobronchial Tubes",
+  insertion_method: "Oral intubation into left bronchus",
+  insertion_site: "Trachea → left main bronchus",
+  contraindications: ["Severe anatomic distortion", "Tracheal stoma"],
+  advantages: ["Optimized lung isolation for left-sided procedures"],
+  preferred_in: ["Left thoracic surgery"],
+  warnings: ["Precise placement needed"],
+  backup_tools: ["Bronchial blocker"],
+  skill_level: "Advanced",
+  image: { alt: "Left-sided Double Lumen Tube", url: "images/left_double_lumen.png" },
+  supported_procedure_types: [
+    "Left lobectomy",
+    "Thoracic surgeries requiring left lung isolation"
+  ],
+  supported_locations: ["OR"],
+  preferred_conditions: ["Need for left lung isolation"],
+  contraindicated_conditions: ["Difficult airway"],
+  consciousness_levels: ["Sedated"],
+  urgency_levels: ["Planned"],
+  sedation_status: ["General anesthesia"]
+},
+{
+  id: "right_sided_double_lumen_tube",
+  tool_name: "Right-sided Double Lumen Tube",
+  tool_category: "Endobronchial Tubes",
+  insertion_method: "Oral intubation into right bronchus",
+  insertion_site: "Trachea → right main bronchus",
+  contraindications: ["Airway distortion", "Tracheal stoma"],
+  advantages: ["Optimized isolation for right-sided lung"],
+  preferred_in: ["Right thoracic surgery"],
+  warnings: ["More difficult bronchial alignment"],
+  backup_tools: ["Bronchial blocker"],
+  skill_level: "Advanced",
+  image: { alt: "Right-sided Double Lumen Tube", url: "images/right_double_lumen.png" },
+  supported_procedure_types: [
+    "Right lobectomy",
+    "Thoracic surgery"
+  ],
+  supported_locations: ["OR"],
+  preferred_conditions: ["Right lung isolation"],
+  contraindicated_conditions: ["Difficult airway"],
+  consciousness_levels: ["Sedated"],
+  urgency_levels: ["Planned"],
+  sedation_status: ["General anesthesia"]
+},
+{
+  id: "bronchocath_tube",
+  tool_name: "Bronchocath Tube",
+  tool_category: "Endobronchial Tubes",
+  insertion_method: "Oral intubation with bronchial lumen",
+  insertion_site: "Trachea → bronchus",
+  contraindications: ["Distorted airway anatomy"],
+  advantages: ["Facilitates one-lung ventilation", "Optional CPAP support to deflated lung"],
+  preferred_in: ["Thoracic surgery"],
+  warnings: ["Requires experienced placement"],
+  backup_tools: ["Bronchial blocker"],
+  skill_level: "Advanced",
+  image: { alt: "Bronchocath Tube", url: "images/bronchocath_tube.png" },
+  supported_procedure_types: [
+    "One-lung ventilation procedures"
+  ],
+  supported_locations: ["OR"],
+  preferred_conditions: ["Need for lung isolation"],
+  contraindicated_conditions: ["Difficult airway"],
+  consciousness_levels: ["Sedated"],
+  urgency_levels: ["Planned"],
+  sedation_status: ["General anesthesia"]
+}
+
+];
 // ==============================
 // Helper: populate select options
 // ==============================
@@ -1829,3 +1630,4 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("calculateBtn").addEventListener("click", handleCalculateClick);
   initThemeToggle();
 });
+
